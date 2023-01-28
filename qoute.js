@@ -1,35 +1,38 @@
-var quoteContainer = document.getElementById("quote-container");
+const quoteContainer = document.getElementById("quote-container");
+const quoteText = document.getElementById("quote");
+const quoteAuthor = document.getElementById("author");
+const nextButton = document.getElementById("next-quote-btn");
+const twitterLogo = document.getElementById("twitter-logo");
 
+let data = [];
+function randomQuote() {
+  const quote = data[Math.floor(Math.random() * data.length)];
+  if (quote.text.length > 50) {
+    quoteText.classList.add("long-quote");
+  } else {
+    quoteText.classList.remove("long-quote");
+  }
+  quoteText.textContent = quote.text;
+
+  if (!quote.author) {
+    quoteAuthor.textContent = "anonymous";
+  } else {
+    quoteAuthor.textContent = quote.author;
+  }
+}
 async function getQuotes() {
   // Make an HTTP request to the Type Fit API
-  const response = await fetch("https://type.fit/api/quotes");
-  // Parse the response as JSON
-  const data = await response.json();
-  // Get a random quote
-  const quote = data[Math.floor(Math.random() * data.length)];
-  return quote;
+  try {
+    const response = await fetch("https://type.fit/api/quotes");
+    // Parse the response as JSON
+    data = await response.json();
+    randomQuote();
+  } catch (error) {}
 }
-var quoteContainer = document.getElementById("quote-container");
-var nextButton = document.getElementById("next-quote-btn");
-var twitterLogo = document.getElementById("twitter-logo");
-
-nextButton.addEventListener("click", async function () {
-  const quote = await getQuotes();
-  // Update the quote container with the quote from the API
-  quoteContainer.innerHTML =
-    "<p id='quote'>" +
-    quote.text +
-    "</p><span id='quote-author'>" +
-    (quote.author ? quote.author : "anonymous") +
-    "</span>";
-  quoteContainer.appendChild(nextButton);
-  quoteContainer.appendChild(twitterLogo);
-});
-var twitterLogo = document.getElementById("twitter-logo");
-
-// Add an event listener to the Twitter logo
-twitterLogo.addEventListener("click", function () {
-  // Get the current quote
-  var quote = document.getElementById("quote").innerText;
-  window.open(`https://www.twitter.com/intent/tweet?text=${quote}`, "_blank");
-});
+getQuotes();
+function tweetQuote() {
+  const twitterUrl = `https://www.twitter.com/intent/tweet?text=${quoteText.textContent} - ${quoteAuthor.textContent}`;
+  window.open(twitterUrl, "_blank");
+}
+nextButton.addEventListener("click", randomQuote);
+twitterLogo.addEventListener("click", tweetQuote);

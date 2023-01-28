@@ -1,89 +1,71 @@
+* {
+  box-sizing: border-box;
+}
 body {
-  text-align: center;
-  background-image: linear-gradient(to bottom, #d8b749, #333333);
-  background-repeat: no-repeat;
+  margin: 0;
+  min-height: 100vh;
+  background: url("Images/backGround2.jpg");
   background-size: cover;
-  background-image: url("Images/backGround2.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
-}
-#title {
-  color: rgb(255, 255, 255);
-  margin-top: 40px;
-}
-
-#quote-container {
-  width: 50%;
-  min-width: 400px;
-  max-width: 600px;
-  height: 175px;
-  min-height: 150px;
-  margin: 10% auto;
-  padding: 2%;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: aliceblue;
-  box-shadow: 0px 0px 10px #58d37d;
-  border-radius: 10px;
   display: flex;
-  flex-direction: column;
-  overflow: auto;
-  position: relative;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(120, 183, 47);
 }
-
-#quote {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  text-align: center;
+.quote-container {
+  width: auto;
+  max-width: 900px;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 0px 10px #58d37d;
 }
-
-#quote:before {
-  content: open-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-right: 10px;
-  vertical-align: -0.4em;
+.quote-text {
+  font-size: 2.8rem;
 }
-
-#quote:after {
-  content: close-quote;
-  font-size: 4em;
-  line-height: 0.1em;
-  margin-left: 10px;
-  vertical-align: -0.4em;
+.quote-author {
+  font-family: "Times New Roman", Times, serif;
+  margin-top: 1rem;
+  color: rgb(220, 150, 20);
 }
-
-#quote span {
-  display: block;
-  font-size: 0.8em;
-  text-align: right;
+.long-quote {
+  font-size: 2rem;
 }
-
+.button-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
 #next-quote-btn {
-  padding: 5px 10px;
   font-size: 0.8em;
+  margin-right: -0.6rem;
   cursor: pointer;
-  align-self: flex-end;
-  transition: all 0.2s ease-in-out;
   background-color: rgb(112, 177, 32);
   color: rgb(0, 0, 0);
   border-style: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
   transform: translateY(-5%);
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
 }
 
 #next-quote-btn:active {
   transform: scale(0.95);
 }
 #twitter-logo {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
   width: 30px;
   height: 30px;
+  margin-left: -0.6rem;
   border-radius: 30%;
   cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+  .quote-container {
+    margin: auto 15px;
+  }
+  .quote-text {
+    font-size: 2.5rem;
+  }
 }
