@@ -1,4 +1,3 @@
-// Get the quote container element
 var quoteContainer = document.getElementById("quote-container");
 
 async function getQuotes() {
@@ -10,15 +9,10 @@ async function getQuotes() {
   const quote = data[Math.floor(Math.random() * data.length)];
   return quote;
 }
-
-// Get the quote container element
 var quoteContainer = document.getElementById("quote-container");
-
-// Get the next button element
 var nextButton = document.getElementById("next-quote-btn");
-var facebookLogo = document.getElementById("facebook-logo");
+var twitterLogo = document.getElementById("twitter-logo");
 
-// Add an event listener to the next button
 nextButton.addEventListener("click", async function () {
   const quote = await getQuotes();
   // Update the quote container with the quote from the API
@@ -29,16 +23,13 @@ nextButton.addEventListener("click", async function () {
     (quote.author ? quote.author : "anonymous") +
     "</span>";
   quoteContainer.appendChild(nextButton);
-  quoteContainer.appendChild(facebookLogo);
+  quoteContainer.appendChild(twitterLogo);
 });
-// Get the Twitter logo element
-var facebookLogo = document.getElementById("facebook-logo");
+var twitterLogo = document.getElementById("twitter-logo");
 
 // Add an event listener to the Twitter logo
-facebookLogo.addEventListener("click", function () {
+twitterLogo.addEventListener("click", function () {
   // Get the current quote
   var quote = document.getElementById("quote").innerText;
-  // var author = document.getElementById("quote-author").innerText;
-  // Open a new window with the quote as the post
   window.open(`https://www.twitter.com/intent/tweet?text=${quote}`, "_blank");
 });
