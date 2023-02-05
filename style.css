@@ -13,7 +13,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgb(120, 183, 47);
 }
 .quote-container {
   width: auto;
@@ -41,18 +40,17 @@ body {
 }
 #next-quote-btn {
   font-size: 0.8em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin-right: -0.6rem;
   cursor: pointer;
   background-color: rgb(112, 177, 32);
   color: rgb(0, 0, 0);
   border-style: none;
   border-radius: 5px;
-  transition: all 0.2s ease-in-out;
-  transform: translateY(-5%);
 }
-
-#next-quote-btn:active {
-  transform: scale(0.95);
+#next-quote-btn:hover {
+  background-color: darkgreen;
+  color: white;
 }
 #twitter-logo {
   width: 30px;
