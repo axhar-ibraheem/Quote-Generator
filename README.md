@@ -3,9 +3,9 @@ A simple web application that generates quotes from famous personalities using H
 
 # Features
 
-#### 1. Displays quotes of famous personalities.
-#### 2. Next button to show a new quote.
-#### 3. Twitter logo to share the quote on twitter.
+* Displays quotes of famous personalities.
+* Next button to show a new quote.
+* Twitter logo to share the quote on twitter.
 
 # Built With
 
